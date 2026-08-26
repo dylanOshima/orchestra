@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.mvp/
+docs/mvp/.progress/
+.worktrees/
+worktrees/
+*.log
+.DS_Store
+.env
