@@ -1,5 +1,5 @@
 {
-  "name": "orchestra",
+  "name": "opencode-orchestra",
   "version": "0.1.0",
   "description": "Orchestra — fast-flow fork of superpowers/mvp for OpenCode: brainstorm → growing task JSONL → parallel subagent delivery, OpenCode-native with file watcher and shared task protocol",
   "type": "module",
@@ -43,16 +43,18 @@
     "email": "dylan@example.com"
   },
   "license": "MIT",
-  "repository": "https://github.com/dylanOshima/orchestra",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dylanOshima/orchestra.git"
+  },
   "homepage": "https://github.com/dylanOshima/orchestra",
   "dependencies": {
     "@opencode-ai/plugin": "^1.18.0"
   },
   "devDependencies": {
-    "@types/bun": "^1.4.0",
+    "typescript": "^5.6.0",
     "@types/node": "^22.0.0",
-    "bun-types": "^1.4.0",
-    "typescript": "^5.6.0"
+    "bun-types": "latest"
   },
   "engines": {
     "node": ">=18"
