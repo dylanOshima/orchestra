@@ -26,9 +26,9 @@ OpenCode-native, TypeScript, shared task protocol (works across Claude, Pi, Code
 ### NPM (unscoped, primary)
 
 ```bash
-npm install orchestra
+npm install opencode-orchestra
 # or
-bun add orchestra
+bun add opencode-orchestra
 ```
 
 Add to your `opencode.json` (global `~/.config/opencode/opencode.json` or project):
@@ -36,7 +36,7 @@ Add to your `opencode.json` (global `~/.config/opencode/opencode.json` or projec
 ```json
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["orchestra"]
+  "plugin": ["opencode-orchestra"]
 }
 ```
 
@@ -53,18 +53,34 @@ You should see `brainstorming`, `task-breakdown`, `executing-tasks`, `using-orch
 
 ```json
 {
-  "plugin": ["orchestra@git+https://github.com/dylanOshima/orchestra.git"]
+  "plugin": ["opencode-orchestra@git+https://github.com/dylanOshima/orchestra.git"]
 }
 ```
 
-### Local dev (filesystem plugins)
+If git install fails with `git dep preparation failed` (Bun bug with exports), workaround:
+```bash
+npm install opencode-orchestra@git+https://github.com/dylanOshima/orchestra.git --prefix ~/.config/opencode
+```
+Then in `opencode.json`:
+```json
+{ "plugin": ["~/.config/opencode/node_modules/opencode-orchestra"] }
+```
+
+### Local dev (filesystem plugins) – file:// install
 
 ```bash
 git clone https://github.com/dylanOshima/orchestra.git
+cd orchestra
+npm install && npm run build
+
+# Global via file:// (recommended local)
+opencode plugin opencode-orchestra@file:///path/to/orchestra --global
+
+# Or manual filesystem:
 mkdir -p ~/.config/opencode/plugins
-ln -sf /path/to/orchestra/dist/index.js ~/.config/opencode/plugins/orchestra.js
-# Or directly:
-cp src/index.ts ~/.config/opencode/plugins/orchestra.ts
+ln -sf /path/to/orchestra/dist/index.js ~/.config/opencode/plugins/opencode-orchestra.js
+# Or directly TS:
+cp src/index.ts ~/.config/opencode/plugins/opencode-orchestra.ts
 ```
 
 `src/skills` auto-discovered via config hook – no symlink needed for skills.
@@ -168,7 +184,7 @@ orchestra/
 | Compaction | Loses tasks | Preserves via context injection |
 | Progress live | TaskList polling | File watcher + progress files |
 | Protection | None | `.env` guard via tool.execute.before |
-| Distribution | marketplace.json git submodule | npm unscoped `orchestra` + git spec + local file |
+| Distribution | marketplace.json git submodule | npm unscoped `opencode-orchestra` + git+https + file:// local |
 
 ## Development
 

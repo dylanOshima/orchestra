@@ -13,7 +13,7 @@ Add orchestra to your `opencode.json` (global or project-level):
 ```json
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["orchestra"]
+  "plugin": ["opencode-orchestra"]
 }
 ```
 
@@ -38,7 +38,7 @@ You should see `brainstorming`, `task-breakdown`, `executing-tasks`, `using-orch
 ```json
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["orchestra@git+https://github.com/dylanOshima/orchestra.git"]
+  "plugin": ["opencode-orchestra@git+https://github.com/dylanOshima/orchestra.git"]
 }
 ```
 
@@ -127,7 +127,7 @@ Or git tag:
 
 ```json
 {
-  "plugin": ["orchestra@git+https://github.com/dylanOshima/orchestra.git#v0.1.0"]
+  "plugin": ["opencode-orchestra@git+https://github.com/dylanOshima/orchestra.git#v0.1.0"]
 }
 ```
 
