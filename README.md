@@ -4,6 +4,9 @@
 
 OpenCode-native, TypeScript, shared task protocol (works across Claude, Pi, Codex, OpenCode), file watcher live sync.
 
+> [!IMPORTANT]
+> **Parked at 2026-08-26** – initial implementation + local file:// install verified, GitHub pushed, notes saved to ai-brain `3-resources/opencode/plugin-dev/`. Global file:// install works, git+https install hits Bun `git dep preparation failed`, npm publish pending. See [docs/FOLLOW-UP.md](docs/FOLLOW-UP.md) for known issues, blockers, and next steps.
+
 ## Why Orchestra?
 
 `mvp` was built for Claude Code (SessionStart hooks, `TaskCreate`/`Agent(isolation:worktree)`). Orchestra is **OpenCode-first**:
