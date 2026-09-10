@@ -1,0 +1,17 @@
+version: 1
+source: opencode
+targets:
+- claude
+- codex
+- opencode
+plugin:
+  name: orchestra
+  description: Orchestra fast-flow plugin for OpenCode, Claude Code, and Codex.
+  marketplace: orchestra-skillz
+paths:
+  source: .
+  skills: dist/skills
+publish:
+  branch: skillz-build
+policy:
+  unsupported: warn

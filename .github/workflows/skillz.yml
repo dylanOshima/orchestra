@@ -1,0 +1,34 @@
+name: Skillz builds
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dylanOshima/skillz@v1
+        with:
+          mode: build
+          output: .skillz/build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: skillz-build
+          path: .skillz/build
+  publish:
+    if: github.event_name == 'push'
+    needs: build
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dylanOshima/skillz@v1
+        with:
+          mode: publish
+          output: .skillz/build
