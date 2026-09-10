@@ -1,0 +1,5 @@
+{
+  "description": "Orchestra fast-flow plugin for OpenCode, Claude Code, and Codex.",
+  "name": "orchestra",
+  "skills": "./skills"
+}

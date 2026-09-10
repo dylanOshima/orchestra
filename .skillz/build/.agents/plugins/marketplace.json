@@ -1,0 +1,12 @@
+{
+  "name": "orchestra-skillz",
+  "plugins": [
+    {
+      "name": "orchestra",
+      "source": {
+        "path": "./codex",
+        "source": "local"
+      }
+    }
+  ]
+}
